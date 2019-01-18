@@ -8,7 +8,7 @@
   </select>
   <insert id="insertAccount">
   	insert
-  		INTO acount (id, pw, email)
-  		VALUES (#{id},#{pw},#{email})
+  		INTO INTO account (id, pw, email,gender,authority)
+  		VALUES (#{id},#{pw},#{email},#{gender},#{authority})
   </insert>
 </mapper>

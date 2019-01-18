@@ -1,11 +1,16 @@
 package kr.green.spring.vo;
 
+import java.sql.Date;
+
 public class AccountVo {
-	//멤버변수의 이름은 테이블 속성의 이름과 일치 시켜주는 것이 좋다
-	//단 필수는 아니지만 일치하지 않으면 mapper에서 추가 작업을 해야한다
+	//硫ㅻ쾭蹂��닔�쓽 �씠由꾩� �뀒�씠釉� �냽�꽦�쓽 �씠由꾧낵 �씪移� �떆耳쒖＜�뒗 寃껋씠 醫뗫떎
+	//�떒 �븘�닔�뒗 �븘�땲吏�留� �씪移섑븯吏� �븡�쑝硫� mapper�뿉�꽌 異붽� �옉�뾽�쓣 �빐�빞�븳�떎
 	private String id;
 	private String pw;
 	private String email;
+	private String gender;
+	private Date registered_date;
+	private String authority;
 	
 
 	public String getId() {
@@ -26,9 +31,29 @@ public class AccountVo {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	public Date getRegistered_date() {
+		return registered_date;
+	}
+	public void setRegistered_date(Date registered_date) {
+		this.registered_date = registered_date;
+	}
+	public String getAuthority() {
+		return authority;
+	}
+	public void setAuthority(String authority) {
+		this.authority = authority;
+	}
+	
 	@Override
 	public String toString() {
-		return "AccountVo [id=" + id + ", pw=" + pw + ", email=" + email + "]";
+		return "AccountVo [id=" + id + ", pw=" + pw + ", email=" + email + ", gender=" + gender + ", registered_date="
+				+ registered_date + ", authority=" + authority + "]";
 	}
 
 }

@@ -9,7 +9,6 @@
 <h1>
 	Hello world!
 </h1>
-<%--컨트롤러에서 전달한 데이터를 받기 위해 ${컨트롤러에서전달한이름} 을 사용한다--%>  
 <P>  The time on the server is ${serverTime}. </P>
 <!-- jsp에서 컨트롤러로 데이터를 전달하려면 form태그를 이용 -->
 <form method="post" action="<%= request.getContextPath() %>/">
@@ -17,5 +16,6 @@
 	<input type="text" name="name">
 	<button>제출</button>
 </form>
+<a href="<%= request.getContextPath() %>/signup">회원가입</a>
 </body>
 </html>

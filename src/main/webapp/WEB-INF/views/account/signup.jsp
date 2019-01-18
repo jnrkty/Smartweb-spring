@@ -17,6 +17,10 @@
 		<div>
 			<input type="email" name="email">
 		</div>
+		<input type="radio" name="gender" value="male" id="male" checked>
+		<label for="male">남성</label>
+		<input type="radio" name="gender" value="female" id="female">
+		<label for="female">여성</label><br>
 		<button type="submit">제출</button>
 	</form>
 	<script type="text/javascript">

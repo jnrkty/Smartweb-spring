@@ -30,32 +30,23 @@ public class HomeController {
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String homeGet(Locale locale, Model model) {
-		/* 컨트롤러에서 jsp로 데이터를 전달하기 위해서
-		 * 1. 매개변수에 Model 객체를 추가 : Model model
-		 * 2. model.addAttribute()를 통해 데이터 전달
-		 * 	  model.addAttribute("jsp에서 받는 이름", "전달할데이터");
-		 *  */
-//		
-//		model.addAttribute("serverTime", "서버시간");
 		
 		return "home";
 	}
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	public String homePost(String name){
-		/* jsp에서 넘겨준 데이터를 받기 위해서는 태그의 속성 name과 일치하는 이름을 매개변수의 이름으로 설정한다
+		/* jsp�뿉�꽌 �꽆寃⑥� �뜲�씠�꽣瑜� 諛쏄린 �쐞�빐�꽌�뒗 �깭洹몄쓽 �냽�꽦 name怨� �씪移섑븯�뒗 �씠由꾩쓣 留ㅺ컻蹂��닔�쓽 �씠由꾩쑝濡� �꽕�젙�븳�떎
 		 * 
 		 * 
 		 *  */
-		System.out.println("jsp에서 넘어온 값 : " +name);
+		System.out.println("jsp�뿉�꽌 �꽆�뼱�삩 媛� : " +name);
 		return "redirect:/";
 	}
 	@RequestMapping(value = "/signup", method = RequestMethod.GET)
-	//null값을 허용해주기 위해
+	//null媛믪쓣 �뿀�슜�빐二쇨린 �쐞�빐
 	// int -> Integer, double -> Double, boolean -> Boolean
 	public String signupGet(Boolean fail, Model model) {
-		if(fail == null) {
-			fail = false;
-		}
+
 		model.addAttribute("fail", fail);
 		return "account/signup";
 	}

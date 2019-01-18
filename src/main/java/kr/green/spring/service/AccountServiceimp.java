@@ -8,7 +8,7 @@ import kr.green.spring.vo.AccountVo;
 
 @Service
 public class AccountServiceimp implements AccountService{
-	/* Autowired는 객체생성을 자동으로 해준다 */
+	/* Autowired�뒗 媛앹껜�깮�꽦�쓣 �옄�룞�쑝濡� �빐以��떎 */
 
 	@Autowired
 	private AccountDao accountDao;
@@ -19,15 +19,16 @@ public class AccountServiceimp implements AccountService{
 	}
 	@Override
 	public boolean signup(AccountVo accountVo) {
-		/* 아이디 중복 확인
-		 * 1. accountDao를 이용하여 id정보가 주어지면 해당 id와 일치하는 객체정보를 가져온다
-		 * 2. 가져온 객체정보가 null이면
-		 *  	accountDao.insertAccount(accountVo)를 실행
-		 *  	아니면 아무것도 처리하지 않음
+		/* �븘�씠�뵒 以묐났 �솗�씤
+		 * 1. accountDao瑜� �씠�슜�븯�뿬 id�젙蹂닿� 二쇱뼱吏�硫� �빐�떦 id�� �씪移섑븯�뒗 媛앹껜�젙蹂대�� 媛��졇�삩�떎
+		 * 2. 媛��졇�삩 媛앹껜�젙蹂닿� null�씠硫�
+		 *  	accountDao.insertAccount(accountVo)瑜� �떎�뻾
+		 *  	�븘�땲硫� �븘臾닿쾬�룄 泥섎━�븯吏� �븡�쓬
 		 */
 		String id = accountVo.getId();
 		AccountVo tmp = accountDao.getAccount(id);
 		if(tmp == null) {
+			accountVo.setAuthority("user");
 			accountDao.insertAccount(accountVo);
 			return true;
 		}
