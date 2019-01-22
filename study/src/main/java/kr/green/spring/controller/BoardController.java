@@ -27,14 +27,14 @@ public class BoardController {
 	 }
 	 @RequestMapping(value="/bbs/register", method=RequestMethod.GET)
 	 public String registerGet(BoardVo board) {
-		 return "bbs/register"; //jsp瑜� �뿴�쑝�씪�뒗嫄�
+		 return "bbs/register"; //jsp�몴占� 占쎈였占쎌몵占쎌뵬占쎈뮉椰꾬옙
 	 }
 	 
 	 @RequestMapping(value="/bbs/register", method=RequestMethod.POST)
 	 public String registerPost(BoardVo board) {
 		 System.out.println(board);
 		 boardService.register(board);
-		 return "redirect:/bbs/list"; //redirect�뒗 URI�깉濡� �엯�젰�빐二쇰뒗嫄�. View媛� �븘�땲�씪 �떎�젣濡� �뿰寃�.
+		 return "redirect:/bbs/list"; //redirect占쎈뮉 URI占쎄퉱嚥∽옙 占쎌뿯占쎌젾占쎈퉸雅뚯눖�뮉椰꾬옙. View揶쏉옙 占쎈툡占쎈빍占쎌뵬 占쎈뼄占쎌젫嚥∽옙 占쎈염野껓옙.
 	 }
-//3
+
 }

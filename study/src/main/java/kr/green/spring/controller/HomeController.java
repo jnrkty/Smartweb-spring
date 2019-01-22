@@ -29,7 +29,7 @@ public class HomeController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home( Model model, Boolean signup) { //id에서 받은 데이터
+	public String home( Model model, Boolean signup) { //id�뿉�꽌 諛쏆� �뜲�씠�꽣
 		model.addAttribute("signup",signup);
 		return "home";
 	}
@@ -39,21 +39,21 @@ public class HomeController {
 		return "signup";
 	}
 	
-	@RequestMapping(value = "/signup", method=RequestMethod.POST) //jsp에서 post로 보냈으니까 get으로 받을 수 없다
-	public String signupPOST(AccountVo accountVo, Model model) { //편의상 post니까 signuppost로 알아보기 쉽게 메소드 지정해준거임
+	@RequestMapping(value = "/signup", method=RequestMethod.POST) //jsp�뿉�꽌 post濡� 蹂대깉�쑝�땲源� get�쑝濡� 諛쏆쓣 �닔 �뾾�떎
+	public String signupPOST(AccountVo accountVo, Model model) { //�렪�쓽�긽 post�땲源� signuppost濡� �븣�븘蹂닿린 �돺寃� 硫붿냼�뱶 吏��젙�빐以�嫄곗엫
 		if(accountService.signup(accountVo)){
-			System.out.println("회원가입 성공");
+			System.out.println("�쉶�썝媛��엯 �꽦怨�");
 			model.addAttribute("signup",true);
 			return "redirect:/";
 		}else {
-			System.out.println("회원가입 실패");
+			System.out.println("�쉶�썝媛��엯 �떎�뙣");
 			model.addAttribute("signup",false);
-			return "redirect:/signup"; //redirect:/ -> post에선 보안이 꽁꽁이라 뿌려줄수없음. 그래서 get방식으로 보내는거. 처리다했으면 signup으로 다시가~
+			return "redirect:/signup"; //redirect:/ -> post�뿉�꽑 蹂댁븞�씠 苑곴퐗�씠�씪 肉뚮젮以꾩닔�뾾�쓬. 洹몃옒�꽌 get諛⑹떇�쑝濡� 蹂대궡�뒗嫄�. 泥섎━�떎�뻽�쑝硫� signup�쑝濡� �떎�떆媛�~
 		}
 		
 	}
 	
-	@RequestMapping(value = "/", method=RequestMethod.POST) //jsp에서 post로 보냈으니까 get으로 받을 수 없다
+	@RequestMapping(value = "/", method=RequestMethod.POST) //jsp�뿉�꽌 post濡� 蹂대깉�쑝�땲源� get�쑝濡� 諛쏆쓣 �닔 �뾾�떎
 	public String homePOST(String id, String pw, Model model) {
 		 AccountVo user = accountService.login(id,pw);
 		 if(user != null) {
@@ -66,14 +66,15 @@ public class HomeController {
 	}
 	
 	
+	
 //	@RequestMapping(value = "/", method = RequestMethod.GET)
 //	public String login(AccountVo accountVo, Model model) {
 //		if(accountService.login(accountVo)) {
-//			System.out.println("로그인 성공");
+//			System.out.println("濡쒓렇�씤 �꽦怨�");
 //			model.addAttribute("login",true);
 //			return "redirect:/";
 //		}else {
-//			System.out.println("로그인 실패");
+//			System.out.println("濡쒓렇�씤 �떎�뙣");
 //			model.addAttribute("login",false);
 //			return "redirect:/";
 //		}
